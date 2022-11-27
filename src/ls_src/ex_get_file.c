@@ -1,14 +1,6 @@
 #include "../../includes/ls_inc.h"
 #include "../../includes/libft/includes/libft.h"
 
-#include <sys/types.h>
-#include <sys/stat.h>
-#include <fcntl.h>
-#include <unistd.h>
-#include <stdlib.h>
-#include <stdio.h>
-#include <errno.h>
-
 static void check_end_str(char *str)
 {
 	size_t len;
