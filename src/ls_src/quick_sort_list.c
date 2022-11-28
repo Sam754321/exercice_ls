@@ -1,22 +1,17 @@
 #include "../../includes/ls_inc.h"
 #include "../../includes/libft/includes/libft.h"
 
-tt_list *pivot_point( tt_list *start, tt_list *end)
+static tt_list *pivot_point( tt_list *start, tt_list *end, long *flag)
 {
     tt_list *pivot;
     tt_list *iter_lst_pivot;
     t_content *tmp_content;
-    t_content *tmp1;
-    t_content *tmp2;
 
     pivot = start;
     iter_lst_pivot = start;
-    
     while(iter_lst_pivot != NULL && iter_lst_pivot != end)
     {
-        tmp1 = (t_content*)iter_lst_pivot->content;
-        tmp2 = (t_content*)end->content; 
-        if(tmp1->len < tmp2->len)
+        if(sort_by_flag(iter_lst_pivot->content, end->content, flag) > 0)
         {
             pivot = start;
             tmp_content = start->content;
@@ -32,15 +27,15 @@ tt_list *pivot_point( tt_list *start, tt_list *end)
     return pivot;
 }
 
-void quick_sort(tt_list *head, tt_list *last)
+void quick_sort(tt_list *head, tt_list *last , long *flag)
 {
     tt_list *pivot;
 
     if(head == last)
         return;
-    pivot = pivot_point(head, last);
+    pivot = pivot_point(head, last, flag);
     if(pivot != NULL && pivot->next != NULL)
-        quick_sort(pivot->next, last);
+        quick_sort(pivot->next, last, flag);
     if(pivot != NULL && head != pivot)
-        quick_sort(head, pivot);
+        quick_sort(head, pivot, flag);
 }

@@ -3,6 +3,6 @@
 
 int main()
 {
-    ex_print_dir_rec("/home/s/Bureau");
+    ex_print_dir_rec("/home/s/Bureau/lib1_0", "-tX");
     return 0;
 }

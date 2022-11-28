@@ -44,7 +44,19 @@ typedef struct          s_content
     char *path;
     size_t len;
     unsigned char type;
-    time_t time;
+    dev_t device_id;
+    ino_t node_num;
+    mode_t file_type;
+    nlink_t link_num;
+    uid_t user_id;
+    gid_t grp_id;
+    dev_t device_special_id;
+    off_t byte_size;
+    blksize_t block_size_sys;
+    blkcnt_t block_512_alloc;
+    time_t ctime;
+    time_t mtime;
+    time_t atime;
     char **stat_array_info;
 }                       t_content;
 
@@ -57,7 +69,7 @@ typedef struct s_parsed
     int correct;
 }              t_parsed;
 
-tt_list *ex_get_dir_list(char *path);
+tt_list *ex_get_dir_list(char *path, long *flag);
 void ex_list_del_all(tt_list **head, void (*del)(void *));
 void ex_list_del_one(tt_list *element, void (*del)(void *));
 tt_list *ex_list_last(tt_list *list);
@@ -66,11 +78,13 @@ void ex_list_push_front(tt_list **head, tt_list *new);
 tt_list *ex_listnew(void *content);
 void ex_print_error_exit(char *str);
 size_t ex_str_array_len(const char **arr);
- tt_list *pivot_point( tt_list *start,  tt_list *end);
+ //tt_list *pivot_point( tt_list *start,  tt_list *end);
 char **array_str_stat_info(struct stat *info);
-void ex_print_dir_rec(char *path);
+void ex_print_dir_rec(char *path, char *flag);
 char *ex_get_file(const char *path);
-
-
+void quick_sort(tt_list *head, tt_list *last, long *flag);
+int set_flag_up(char *str, long *options);
+int check_flag_up(char c, long *options);
+int sort_by_flag(void *iter, void *end, long *option);
 
 #endif
