@@ -6,7 +6,7 @@ void ex_print_error_exit(char *str)
     char *ret;
 
     ret = "Error";
-    if(str)
+    if (str)
         ret = str;
     perror("");
     ft_putstr(ret);

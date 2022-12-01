@@ -21,7 +21,6 @@ int check_flag_up(char c, long *options)
         flag = 0;
         decal_byt = convert_alpha_num(c);
         flag |= 1 << decal_byt;
-        printf("flag entrer : %ld flag test : %ld",*options, flag);
         if((flag  << decal_byt) & (*options << decal_byt))
             return 1;
     return 0;

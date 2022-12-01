@@ -4,10 +4,10 @@
 void ex_list_del_one(tt_list *element, void (*del)(void *))
 {
     void *content;
-    if(element)
+    if (element)
     {
-        content = (void*)element->content;
-        if(content && del)
+        content = (void *)element->content;
+        if (content && del)
         {
             del(content);
         }

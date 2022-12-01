@@ -6,10 +6,10 @@ tt_list *ex_list_last(tt_list *list)
     tt_list *retlist;
 
     retlist = NULL;
-    if(list)
+    if (list)
     {
         retlist = list;
-        while(retlist->next)
+        while (retlist->next)
         {
             retlist = retlist->next;
         }

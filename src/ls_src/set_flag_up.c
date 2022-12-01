@@ -33,7 +33,7 @@ int set_flag_up(char *str, long *options)
             if(ft_cmp_char_str(str[i], list_option) != 0 && !j)
                 return -1;
             else if(j)
-                *options |= 1 << convert_alpha_num(str[i]),printf("%ld__option\n",*options);
+                *options |= 1 << convert_alpha_num(str[i]);
             i++;
         }
         return 2;

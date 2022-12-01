@@ -173,9 +173,12 @@ tt_list *ex_get_dir_list(char *path, long *flag)
         {
                 errno = 0;
                 dir_opn = opendir(path);
-                check_err(errno,"opendir");
+                //check_err(errno,"opendir");
                 if(errno == 13 || errno == 20 || errno == 2)
+                {
+                        //perror(path);
                         return *head_lst;
+                }
                 do{
                         errno = 0;
                         tab_dir_info = readdir(dir_opn);

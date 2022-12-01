@@ -6,29 +6,29 @@ void ex_list_del_all(tt_list **head, void (*del)(void *))
     tt_list *tmplst;
     tt_list *nxtmp;
 
-    if(head && *head)
+    if (head && *head)
     {
         tmplst = *head;
-        if(tmplst && del)
+        if (tmplst && del)
         {
             nxtmp = tmplst->next;
-            if(!nxtmp)
+            if (!nxtmp)
             {
-                if(tmplst->content)
+                if (tmplst->content)
                     del(tmplst->content);
                 free(tmplst);
                 tmplst = NULL;
                 return;
             }
-            while(tmplst)
+            while (tmplst)
             {
-                if(tmplst->content)
+                if (tmplst->content)
                     del(tmplst->content);
                 nxtmp = tmplst->next;
                 free(tmplst);
                 tmplst = NULL;
                 tmplst = nxtmp;
-            }   
-        }      
+            }
+        }
     }
 }
