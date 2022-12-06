@@ -41,6 +41,7 @@ typedef struct s_test
 typedef struct s_content
 {
     char *path;
+    char *file_name;
     size_t len;
     unsigned char type;
     dev_t device_id;
@@ -78,12 +79,14 @@ tt_list *ex_listnew(void *content);
 void ex_print_error_exit(char *str);
 size_t ex_str_array_len(const char **arr);
 // tt_list *pivot_point( tt_list *start,  tt_list *end);
-char **array_str_stat_info(struct stat *info);
-void ex_print_dir_rec(char *path, char *flag);
+char **array_str_stat_info(struct stat *info, long *flag);
+void ex_print_dir_rec(char *path, long long_flag);
 char *ex_get_file(const char *path);
 void quick_sort(tt_list *head, tt_list *last, long *flag);
 int set_flag_up(char *str, long *options);
 int check_flag_up(char c, long *options);
 int sort_by_flag(void *iter, void *end, long *flag);
+int atoi_check_version(const char *nptr, int *i);
+double atod_check_version(const char *nptr, int *len);
 
 #endif

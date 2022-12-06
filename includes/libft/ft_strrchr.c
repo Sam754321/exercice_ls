@@ -2,17 +2,17 @@
 
 char *ft_strrchr(const char *str, int c)
 {
-    int len;
+	int len;
 	char *retstr;
 
-	if(str)
+	if (str)
 	{
-    	len = ft_strlen((char*)str);
-		if(len > 0)
-			retstr = (char*)&str[len-1];
-		while(retstr || len > 1)
+		len = ft_strlen((char *)str);
+		if (len > 0)
+			retstr = (char *)&str[len - 1];
+		while (len >= 1)
 		{
-			if(*retstr == c)
+			if (*retstr == c)
 				return retstr;
 			retstr--;
 			len--;
